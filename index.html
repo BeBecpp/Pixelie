@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixelie</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Hover статус (зүрх / хоол / эрч хүч) -->
+    <div id="status" class="status hidden">
+      <div class="stat"><canvas class="icon" data-icon="heart"  width="14" height="14"></canvas><div class="bar"><span id="bar-happy"></span></div></div>
+      <div class="stat"><canvas class="icon" data-icon="food"   width="14" height="14"></canvas><div class="bar"><span id="bar-hunger"></span></div></div>
+      <div class="stat"><canvas class="icon" data-icon="energy" width="14" height="14"></canvas><div class="bar"><span id="bar-energy"></span></div></div>
+    </div>
+
+    <!-- Амьтан -->
+    <canvas id="pet" width="192" height="192"></canvas>
+
+    <!-- Hover дээр гарч ирэх товчнууд -->
+    <div id="controls" class="controls hidden">
+      <button class="btn" data-act="feed"  title="Хооллох">Feed</button>
+      <button class="btn" data-act="play"  title="Тоглох">Play</button>
+      <button class="btn" data-act="sleep" title="Унтуулах / сэрээх">Sleep</button>
+    </div>
+
+    <!-- Right-click цэс -->
+    <div id="menu" class="menu hidden">
+      <div class="mi" data-act="feed">🍖  Хооллох</div>
+      <div class="mi" data-act="play">🎮  Тоглох</div>
+      <div class="mi" data-act="sleep">😴  Унтуулах / Сэрээх</div>
+      <div class="sep"></div>
+      <div class="mi" data-act="hide">➖  Нуух</div>
+      <div class="mi" data-act="quit">✕  Гарах</div>
+    </div>
+  </div>
+
+  <!-- sprites эхэлж, дараа нь shim (preload байхгүй үед), эцэст нь renderer -->
+  <script src="sprites.js"></script>
+  <script src="web-shim.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>

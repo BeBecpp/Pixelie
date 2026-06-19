@@ -1,0 +1,105 @@
+/* =============================================================================
+ * styles.css  —  Pixelie cozy minimal UI
+ *   Дэвсгэр бүрэн тунгалаг (Electron transparent цонхтой нийцнэ).
+ * ============================================================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: transparent;          /* дэвсгэр хайрцаггүй */
+  overflow: hidden;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  user-select: none;
+  cursor: default;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Амьтан — pixel-art болохоор бүдгэрүүлэхгүй */
+#pet {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  cursor: grab;                     /* чирэхэд бэлэн */
+}
+#pet:active { cursor: grabbing; }
+
+/* --- Hover статус --------------------------------------------------------- */
+.status {
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px;
+  margin-bottom: 2px;
+  background: rgba(91, 74, 107, 0.78);
+  border-radius: 8px;
+  transition: opacity 0.18s ease;
+}
+.stat { display: flex; align-items: center; gap: 4px; }
+.icon { image-rendering: pixelated; }
+.bar {
+  width: 30px; height: 7px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.bar span {
+  display: block; height: 100%; width: 50%;
+  background: #f6b8c8;
+  transition: width 0.25s ease;
+}
+#bar-hunger { background: #ffd79a; }
+#bar-energy { background: #b9e89a; }
+
+/* --- Hover товчнууд ------------------------------------------------------- */
+.controls {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+  transition: opacity 0.18s ease;
+}
+.btn {
+  -webkit-app-region: no-drag;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: #7ec5bc;
+  border: 2px solid #5b4a6b;
+  border-radius: 6px;
+  padding: 3px 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #5b4a6b;
+}
+.btn:hover  { background: #8fd6cd; }
+.btn:active { transform: translateY(2px); box-shadow: none; }
+
+/* --- Right-click цэс ------------------------------------------------------ */
+.menu {
+  position: absolute;
+  z-index: 100;
+  min-width: 150px;
+  background: #fff;
+  border: 2px solid #5b4a6b;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+}
+.mi {
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: #3a3050;
+  cursor: pointer;
+}
+.mi:hover { background: #f0eef5; }
+.sep { height: 1px; background: #e0dce8; margin: 4px 6px; }
+
+.hidden { opacity: 0; pointer-events: none; }

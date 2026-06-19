@@ -1,0 +1,16 @@
+{
+  "name": "pixelie",
+  "version": "1.0.0",
+  "description": "Pixelie — cute pixel-art desktop pet companion (Electron). Feed, play, and it remembers its state.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "keywords": ["electron", "desktop-pet", "pixel-art", "tamagotchi"],
+  "author": "BeBe (BeBecpp)",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.0.0"
+  }
+}
