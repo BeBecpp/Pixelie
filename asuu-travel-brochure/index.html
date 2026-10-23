@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<title>Asuu.Travel | 2 nuur A5 taniltsuulga</title>
+<style>
+  @font-face { font-family: "DejaVu"; font-weight: 400; src: local("DejaVu Sans"), url("file:///usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"); }
+  @font-face { font-family: "DejaVu"; font-weight: 700; src: local("DejaVu Sans Bold"), url("file:///usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"); }
+
+  :root {
+    --orange: #FF4B2D;
+    --ink: #112626;
+    --ink-deep: #0A2020;
+    --gray: #536365;
+    --card: #F3F5F4;
+    --mint: #E9F3EF;
+    --green: #26806A;
+    --rule: #E4E9E7;
+    --on-dark: #D3E1DF;
+    --page-w: 148mm;
+    --page-h: 210mm;
+    --margin-x: 27.5pt;
+    --hero-h: 138pt;
+    --hero-pos: 50% 75%;
+  }
+  @page { size: 148mm 210mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: "DejaVu", "DejaVu Sans", Verdana, sans-serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page {
+    width: var(--page-w); height: var(--page-h);
+    position: relative; overflow: hidden;
+    padding: 25pt var(--margin-x) 0;
+    break-after: page; page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { break-after: auto; page-break-after: auto; }
+
+  /* header */
+  .hdr {
+    height: 32pt; padding-bottom: 12pt;
+    border-bottom: 0.9pt solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; }
+  .brand img { width: 18.5pt; height: 19pt; display: block; }
+  .brand span { font-size: 15pt; font-weight: 700; color: var(--ink-deep); margin-left: 8.5pt; letter-spacing: 0.1pt; }
+  .hdr-label { font-size: 8pt; font-weight: 700; color: var(--gray); text-transform: uppercase; }
+
+  .kicker { color: var(--orange); font-weight: 700; font-size: 9.5pt; line-height: 1.2; margin-top: 12pt; text-transform: uppercase; }
+
+  /* hero */
+  .hero { position: relative; height: var(--hero-h); margin-top: 11pt; overflow: hidden; background: var(--ink-deep); }
+  .hero img { width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-pos); display: block; }
+  .hero-band {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 64pt;
+    background: rgba(5, 20, 22, 0.82);
+    padding: 0 15pt; display: flex; flex-direction: column; justify-content: center; color: #fff;
+  }
+  .hero-band h1 { font-size: 21pt; line-height: 1.15; font-weight: 700; }
+  .hero-band p { font-size: 13pt; line-height: 1.3; font-weight: 700; margin-top: 3pt; }
+
+  .intro { font-size: 10pt; line-height: 14pt; margin-top: 14pt; color: var(--ink); }
+  .kicker.section { margin-top: 18pt; }
+
+  /* who can register cards */
+  .cards { display: flex; flex-direction: column; gap: 5pt; margin-top: 9pt; }
+  .card { display: flex; align-items: flex-start; gap: 9pt; background: var(--card); border-radius: 7pt; padding: 10pt 11pt; }
+  .num {
+    flex: 0 0 auto; width: 28pt; height: 28pt; border-radius: 50%; margin-top: 1pt;
+    background: var(--orange); color: #fff; font-weight: 700; font-size: 10.5pt; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0.6pt 0 0 0.8pt; /* optical centring of the digits */
+  }
+  .card h3 { font-size: 11.5pt; line-height: 1.2; font-weight: 700; color: var(--ink); }
+  .card p { font-size: 9.2pt; line-height: 12.5pt; color: var(--gray); margin-top: 2.5pt; }
+
+  /* callouts */
+  .callout { position: relative; margin-top: 16pt; background: var(--mint); border-radius: 6pt; padding: 8pt 13pt; overflow: hidden; }
+  .callout.bar::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3.7pt; background: var(--green); }
+  .callout p { font-size: 10pt; font-weight: 700; line-height: 14pt; color: var(--ink-deep); }
+  .callout p.green { color: var(--green); }
+
+  /* footer */
+  footer {
+    position: absolute; left: var(--margin-x); right: var(--margin-x); bottom: 0; height: 20.3pt;
+    border-top: 0.75pt solid var(--rule);
+    display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 6pt;
+    font-size: 8.5pt; color: var(--gray);
+  }
+
+  /* page 2 */
+  .h-big { font-size: 21pt; font-weight: 700; color: var(--ink); line-height: 1.2; margin-top: 7pt; }
+  .steps { margin-top: 8pt; }
+  .step { display: flex; align-items: flex-start; gap: 12pt; }
+  .step .num { width: 32pt; height: 32pt; font-size: 12pt; margin-top: 7pt; padding: 1.6pt 0 0 0.5pt; }
+  .step .txt { flex: 1; padding: 7pt 0 7pt; border-bottom: 0.9pt solid var(--rule); min-height: 46pt; }
+  .step:last-child .txt { border-bottom: 0; }
+  .step h3 { font-size: 12pt; line-height: 1.2; font-weight: 700; color: var(--ink); }
+  .step p { font-size: 9.2pt; line-height: 13pt; color: var(--gray); margin-top: 2pt; }
+  .callout.plain { margin-top: 12pt; padding: 9pt 11pt; border-radius: 5pt; }
+  .kicker.pay { margin-top: 16pt; }
+  .row { display: flex; gap: 7pt; margin-top: 9pt; }
+  .pay-card { flex: 1 1 0; background: var(--card); border-radius: 6pt; padding: 9pt 9pt 10pt; }
+  .pay-card .n { font-size: 11pt; font-weight: 700; color: var(--orange); line-height: 1.2; }
+  .pay-card p { font-size: 9pt; font-weight: 700; line-height: 12pt; color: var(--ink); margin-top: 6pt; }
+
+  .dark {
+    margin-top: 12pt; background: var(--ink-deep); border-radius: 9pt; padding: 12pt 14pt;
+    display: flex; justify-content: space-between; align-items: center; color: #fff;
+  }
+  .dark .lbl { font-size: 8.5pt; font-weight: 700; color: var(--orange); line-height: 1.2; text-transform: uppercase; }
+  .dark h2 { font-size: 16pt; font-weight: 700; line-height: 20pt; margin-top: 8pt; }
+  .dark .phone { font-size: 18pt; font-weight: 700; line-height: 1.2; margin-top: 12pt; }
+  .dark .mail { font-size: 9.5pt; color: var(--on-dark); margin-top: 8pt; line-height: 1.2; }
+  .dark .url { font-size: 9.5pt; color: var(--on-dark); margin-top: 4pt; line-height: 1.2; }
+  .dark a { color: inherit; text-decoration: none; }
+  .qr-box { flex: 0 0 auto; width: 112pt; height: 112pt; background: #fff; border-radius: 4pt; padding: 12pt; display: block; }
+  .qr-box img { width: 88pt; height: 88pt; display: block; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page">
+  <header class="hdr">
+    <div class="brand"><img src="assets/logo.png" alt="Asuu.Travel"><span>Asuu.Travel</span></div>
+    <div class="hdr-label">Хамтын ажиллагааны санал</div>
+  </header>
+  <main>
+    <p class="kicker">Хөтөч &nbsp;/&nbsp; Жуулчны бааз &nbsp;/&nbsp; Аяллын компани</p>
+
+    <div class="hero">
+      <img src="assets/cover.jpg" alt="">
+      <div class="hero-band">
+        <h1>Үйлчилгээгээ танилцуул.</h1>
+        <p>Захиалгаа нэг дор удирд.</p>
+      </div>
+    </div>
+
+    <p class="intro">Asuu.Travel нь аялагчдыг жуулчны бааз, амралтын газар, аяллын компани болон хөтөчтэй холбох захиалгын платформ юм.</p>
+
+    <h2 class="kicker section">Хэн бүртгүүлж болох вэ?</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <div>
+          <h3>Жуулчны бааз, амралтын газар</h3>
+          <p>Байр, үнэ, зургаа танилцуулж, захиалга авах өдрөө тохируул. Ирсэн захиалгын мэдээллээ нэг дор хар.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <div>
+          <h3>Аяллын компани</h3>
+          <p>Аяллын хөтөлбөр, үнэ, явах өдөр, боломжит суудлаа нийтэлж, онлайнаар захиалга ав.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <div>
+          <h3>Аяллын хөтөч</h3>
+          <p>Өдрийн хөлс, хэл, ажиллах өдрөө танилцуул. Компаниудтай хамтран ажиллаж, аялагчаас шууд захиалга ав.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout bar">
+      <p>БҮРТГҮҮЛЭХ, УДИРДЛАГЫН СИСТЕМ</p>
+      <p class="green">АШИГЛАХ ҮНЭГҮЙ</p>
+    </div>
+  </main>
+  <footer><span>asuu.travel</span><span>01 / 02</span></footer>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+  <header class="hdr">
+    <div class="brand"><img src="assets/logo.png" alt="Asuu.Travel"><span>Asuu.Travel</span></div>
+    <div class="hdr-label">Бүртгэл, холбоо барих</div>
+  </header>
+  <main>
+    <p class="kicker">Хэрхэн нэгдэх вэ?</p>
+    <h1 class="h-big">Гурван алхмаар эхлээрэй.</h1>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div class="txt">
+          <h3>Бүртгэл үүсгэ</h3>
+          <p>Хэрэглэгчээр бүртгүүлээд үйлчилгээний төрлөө сонго.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div class="txt">
+          <h3>Мэдээллээ оруул</h3>
+          <p>Үйлчилгээний мэдээлэл, үнэ, зургаа оруул.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div class="txt">
+          <h3>Баталгаажуулж, нийтлүүл</h3>
+          <p>Баталгаажсаны дараа таны мэдээлэл дэлхий даяар цацагдана.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout plain">
+      <p class="green">Бүртгүүлэх, удирдлагын систем ашиглах үнэгүй.</p>
+    </div>
+
+    <h2 class="kicker pay">Захиалга, төлбөр</h2>
+    <div class="row">
+      <div class="pay-card"><div class="n">01</div><p>Аялагч захиалж, төлбөрөө төлнө</p></div>
+      <div class="pay-card"><div class="n">02</div><p>Захиалга баталгаажна</p></div>
+      <div class="pay-card"><div class="n">03</div><p>Төлбөр таны дансанд</p></div>
+    </div>
+
+    <div class="dark">
+      <div class="dark-txt">
+        <p class="lbl">Хамтран ажиллахыг урьж байна</p>
+        <h2>QR кодыг уншуулж<br>бүртгүүлээрэй.</h2>
+        <p class="phone">72225522</p>
+        <p class="mail">info@asuu.travel</p>
+        <p class="url"><a href="https://asuu.travel/mn/providers">asuu.travel/mn/providers</a></p>
+      </div>
+      <a class="qr-box" href="https://asuu.travel/mn/providers"><img src="assets/qr.svg" alt="QR: asuu.travel/mn/providers"></a>
+    </div>
+  </main>
+  <footer><span>asuu.travel</span><span>02 / 02</span></footer>
+</section>
+
+</body>
+</html>
